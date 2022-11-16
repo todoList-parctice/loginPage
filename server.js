@@ -1,11 +1,14 @@
 const express = require('express');
+const { Signin } = require('./api/Signin.js');
 
-const app = express();
+const server = express();
 const PORT = 9999;
 
-app.use(express.static('dist'));
-app.use(express.json());
+server.use(express.static('dist'));
+server.use(express.json());
 
-app.listen(PORT, () => {
+Signin(server);
+
+server.listen(PORT, () => {
   console.log(`open server http://localhost:${PORT}`);
 });
